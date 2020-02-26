@@ -53,6 +53,9 @@ def index():
                 "ans_3": "None",
                 "ans_4": "None",
                 "ans_5": "None",
+                "ans_6": "None",
+                "ans_7": "None",
+                "ans_8": "None",
                 "sexo": sexo,
                 "industria": industria,
                 "estudios": estudios
@@ -69,6 +72,7 @@ def survey():
     n_question = session["QUESTION"]
     que = questions[f'ans_{n_question}']
     ans = answers[f'ans_{n_question}']
+    print(f'Pregunta {n_question} : {que}\nRespustas:{ans}')
     
     if request.method == 'POST':
         #answered = session["QUESTION"]
@@ -77,11 +81,11 @@ def survey():
         data = {f"ans_{n_question}" : answer}
         db.child("results").child(today).child(k).update(data)
         
-        if n_question < 5:
+        if n_question < 8:
             session["QUESTION"] += 1
             n_question = session["QUESTION"]
-            print(n_question)
             que = questions[f'ans_{n_question}']
+            ans = answers[f'ans_{n_question}']
             return render_template('/home/survey_home.html', n_question=n_question, que=que, ans=ans)
     return render_template('/home/survey_home.html', n_question=n_question, que=que, ans=ans)
 ######################################################################

@@ -1,6 +1,6 @@
 {% extends "/home/base_home.html" %}
 
-{% block title %}Encuesta{% endblock %}
+{% block title %}Prueba de Conocimientos IA{% endblock %}
 
 <!-- ################################################################################### -->
 <!-- Navigation -->
@@ -56,27 +56,31 @@
                         <h4 class="mb-1">Sexo</h4>
                         <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
                             <label class="btn btn-info btn-sm active">
-                                <input type="radio" name="sexo" id="option1" autocomplete="off" value="Masculino"
+                                <input type="radio" name="sexo" id="option1" autocomplete="off" value="masculino"
                                     checked> Masculino
                             </label>
                             <label class="btn btn-info btn-sm">
-                                <input type="radio" name="sexo" id="option2" autocomplete="off" value="Femenino">
+                                <input type="radio" name="sexo" id="option2" autocomplete="off" value="femenino">
                                 Femenino
                             </label>
                         </div>
                         <h4 class="mb-1">Industria</h4>
                         <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
                             <label class="btn btn-info btn-sm active">
-                                <input type="radio" name="industria" id="option3" autocomplete="off" value="Salud"
+                                <input type="radio" name="industria" id="option3" autocomplete="off" value="salud"
                                     checked> Salud
                             </label>
                             <label class="btn btn-info btn-sm">
-                                <input type="radio" name="industria" id="option4" autocomplete="off" value="Ingenieria">
-                                Ingenieria
+                                <input type="radio" name="industria" id="option4" autocomplete="off" value="ingenieria">
+                                Ingeniería
                             </label>
                             <label class="btn btn-info btn-sm">
-                                <input type="radio" name="industria" id="option5" autocomplete="off" value="Educacion">
+                                <input type="radio" name="industria" id="option5" autocomplete="off" value="educacion">
                                 Educacion
+                            </label>
+                            <label class="btn btn-info btn-sm">
+                                <input type="radio" name="industria" id="option5" autocomplete="off" value="otro">
+                                Otro
                             </label>
                         </div>
                         <h4 class="mb-1">Nivel de Estudios</h4>
@@ -95,14 +99,14 @@
                             </label>
                         </div>
                         <br><br>
-                        <button type="submit" class="btn btn-success">Enviar!</button>
+                        <button type="submit" class="btn btn-success">!Enviar!</button>
                     </div>
                 </form>
                 {% else %}
-                <h3 class="my-3 text-center">Gracias por enviarnos los datos anteriores. <br> ¿Que tanto sabes de <span
-                        id='indispensable'>INTELIGENCIA ARTIFICIAL?</span></h3>
+                <h3 class="my-3 text-center">Gracias por enviarnos los datos anteriores.</h3>
+                        <h2 class="my-3 text-center"> ¿Que tanto sabes de <span id='indispensable'>INTELIGENCIA ARTIFICIAL?</span></h2>
                 <div class="text-center">
-                    <a href="{{ url_for('survey') }}" class="btn btn-outline js-scroll-trigger text-center">Comienza Ahora!</a>
+                    <a href="{{ url_for('survey') }}" class="btn btn-outline js-scroll-trigger text-center">!Comienza Ahora!</a>
                 </div>
                 
                 {% endif %}
