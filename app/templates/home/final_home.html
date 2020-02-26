@@ -1,0 +1,75 @@
+{% extends "/home/base_home.html" %}
+
+{% block title %}Encuesta{% endblock %}
+
+<!-- ################################################################################### -->
+<!-- Navigation -->
+{% block nav %}
+<img src="static/home/img/datapulse_logo.png" class="img-fluid" alt="Datapulse SAS" style="width: auto; height:80px">
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    Menu
+    <i class="fas fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ url_for('index') }}">Volver</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+<!-- ################################################################################### -->
+<!-- Navigation -->
+
+
+{% block body %}
+<!-- ################################################################################### -->
+<!-- Header -->
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-5 my-auto">
+                <div class="header-content mx-auto">
+                    <h2 class="mb-5">Te agradecemos por participar en esta prueba. Si deseas saber como se aplica
+                        esta tecnologia en el sector salud te invitamos a comunicarte con nosotros. <br><br>
+                        <span id='indispensable' style="font-size: xxx-large;">Contactanos!</span></h2>
+                    <a href="{{ url_for('survey') }}"
+                        class="btn btn-outline btn-xl js-scroll-trigger">www.datapulse-opt.com</a>
+                </div>
+            </div>
+            <div class="col-lg-7 my-auto">
+                <div class="header-content mx-auto">
+                    <h3 class="mb-1">Resultados<span id='indispensable'></span></h3>
+                    <div class="border-top my-3"></div>
+                    {% set cnt = [0] %}
+                    {% for k,v in respuestas.items() %}
+                    
+                    <p><span style="font-size: large;">{{ questions[k] }}</span> <br> 
+                        {% if  correct[k] == v%}
+                            {% if cnt.append(cnt.pop() + 1) %}{% endif %}
+                        <span style="color: greenyellow;">Respuesta: {{ v }} </span>
+                        {% else %}
+                        <span style="color: red;">Respuesta: {{ v }} </span>
+                        {% endif %} 
+                        <br> Correcta: {{ correct[k] }}</p>
+                    {% endfor %}
+                    <div class="border-top my-3"></div>
+                    {% if  cnt[0] == 1 %}
+                    <p style="font-size: large; color:green">Obtuvo 1 correcta de 5 preguntas.</p>
+                    {% elif cnt[0] == 0 %}
+                    <h3 style="font-size: large; color: red">Ninguna correcta de 5 preguntas.</h3>
+                    {% else %}
+                    <h3 style="font-size: large; color:green">Obtuvo {{ cnt[0] }} correctas de 5 preguntas.</h3>
+                    {% endif %}
+                    <br>
+                    <a href="{{ url_for('index') }}" class="btn btn-outline js-scroll-trigger">Volver!</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ################################################################################### -->
+<!-- Header -->
+
+{% endblock %}

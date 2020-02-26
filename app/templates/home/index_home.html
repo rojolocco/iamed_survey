@@ -1,0 +1,154 @@
+{% extends "/home/base_home.html" %}
+
+{% block title %}Encuesta{% endblock %}
+
+<!-- ################################################################################### -->
+<!-- Navigation -->
+{% block nav %}
+<img src="static/home/img/datapulse_logo.png" class="img-fluid" alt="Datapulse SAS" style="width: auto; height:80px">
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    Menu
+    <i class="fas fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
+        </li>
+        <li class="nav-item" id="login">
+            <a class="nav-link js-scroll-trigger" href="{{ url_for('login_home') }}">LogIn</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+<!-- ################################################################################### -->
+<!-- Navigation -->
+
+
+{% block body %}
+<!-- ################################################################################### -->
+<!-- Header -->
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-7 my-auto">
+                <div class="device-container">
+                    <div class="device-mockup iphone6_plus portrait white">
+                        <div class="device">
+                            <div class="screen">
+                                <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
+                                <img src="static/home/img/demo-screen-1.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5 my-auto">
+                {% if  inicio %}
+                <form method="POST" action="{{ url_for('index') }}">
+                    <div class="header-content mx-auto">
+                        <h3 class="my-3">En esta nueva era de la revolución 4.0, el uso de herramientas basadas en
+                            inteligencia artificial aplicadas al sector salud es indispensable!</h3>
+                        <h3 class="my-3">Llena esta pequeña prueba para que veas que tanto sabes de <span id='indispensable'>INTELIGENCIA ARTIFICIAL!</span></h3>
+                        <br>
+                        <h4 class="mb-1">Sexo</h4>
+                        <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                            <label class="btn btn-info btn-sm active">
+                                <input type="radio" name="sexo" id="option1" autocomplete="off" value="Masculino"
+                                    checked> Masculino
+                            </label>
+                            <label class="btn btn-info btn-sm">
+                                <input type="radio" name="sexo" id="option2" autocomplete="off" value="Femenino">
+                                Femenino
+                            </label>
+                        </div>
+                        <h4 class="mb-1">Industria</h4>
+                        <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                            <label class="btn btn-info btn-sm active">
+                                <input type="radio" name="industria" id="option3" autocomplete="off" value="Salud"
+                                    checked> Salud
+                            </label>
+                            <label class="btn btn-info btn-sm">
+                                <input type="radio" name="industria" id="option4" autocomplete="off" value="Ingenieria">
+                                Ingenieria
+                            </label>
+                            <label class="btn btn-info btn-sm">
+                                <input type="radio" name="industria" id="option5" autocomplete="off" value="Educacion">
+                                Educacion
+                            </label>
+                        </div>
+                        <h4 class="mb-1">Nivel de Estudios</h4>
+                        <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                            <label class="btn btn-info btn-sm active">
+                                <input type="radio" name="estudios" id="option6" autocomplete="off" value="Pregrado"
+                                    checked> Pregrado
+                            </label>
+                            <label class="btn btn-info btn-sm">
+                                <input type="radio" name="estudios" id="option7" autocomplete="off" value="Posgrado">
+                                Posgrado
+                            </label>
+                            <label class="btn btn-info btn-sm">
+                                <input type="radio" name="estudios" id="option8" autocomplete="off" value="Otro">
+                                Otro
+                            </label>
+                        </div>
+                        <br><br>
+                        <button type="submit" class="btn btn-success">Enviar!</button>
+                    </div>
+                </form>
+                {% else %}
+                <h3 class="my-3">Gracias por enviarnos los datos anteriores. <br><br> ¿Que tanto sabes de <span
+                        id='indispensable'>INTELIGENCIA ARTIFICIAL?</span></h3>
+                <a href="{{ url_for('survey') }}" class="btn btn-outline btn-xl js-scroll-trigger">Comienza Ahora!</a>
+                {% endif %}
+                
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ################################################################################### -->
+<!-- Header -->
+
+
+<!-- ################################################################################### -->
+<!-- Contact-->
+<section class="contact bg-light text-white" id="contact">
+    <div class="container">
+        <h2 style="color: black;">We
+            <i class="fas fa-heart"></i>
+            new friends!</h2>
+        <ul class="list-inline list-social">
+            <li class="list-inline-item social-facebook">
+                <a href="https://www.facebook.com/datapulseopt" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </li>
+            <li class="list-inline-item social-twitter">
+                <a href="https://twitter.com/DatapulseSas" target="_blank">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </li>
+            <li class="list-inline-item social-linkedin">
+                <a href="https://www.linkedin.com/company/datapulsesas" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+            </li>
+            <li class="list-inline-item social-instagram">
+                <a href="https://www.instagram.com/datapulse_opt" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </li>
+            <li class="list-inline-item social-whatsapp">
+                <a href="https://api.whatsapp.com/send?phone=573172806443" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+            </li>
+        </ul>
+        <br>
+        <p style="color: black;">info@datapulse-opt.com</p>
+    </div>
+</section>
+<!-- ################################################################################### -->
+<!-- Contact-->
+{% endblock %}

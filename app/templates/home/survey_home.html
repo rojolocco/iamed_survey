@@ -1,0 +1,75 @@
+{% extends "/home/base_home.html" %}
+
+{% block title %}Encuesta{% endblock %}
+
+<!-- ################################################################################### -->
+<!-- Navigation -->
+{% block nav %}
+<img src="static/home/img/datapulse_logo.png" class="img-fluid" alt="Datapulse SAS" style="width: auto; height:80px">
+<button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+    Menu
+    <i class="fas fa-bars"></i>
+</button>
+<div class="collapse navbar-collapse" id="navbarResponsive">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ url_for('index') }}">Volver</a>
+        </li>
+    </ul>
+</div>
+{% endblock %}
+<!-- ################################################################################### -->
+<!-- Navigation -->
+
+
+{% block body %}
+<!-- ################################################################################### -->
+<!-- Header -->
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100">
+            <div class="col-lg-6 my-auto">
+                <div class="header-content mx-auto">
+                    <h2 class="mb-5">Esta prueba consta de 5 preguntas basicas sobre inteligencia artifical. 
+                        <br> Al final sabras que tanto sabes de esta tecnologia que revolucionara la industria. <br> <br>
+                        <span id='indispensable' style="font-size: xxx-large;">Buena Suerte!</span></h2>
+                </div>
+            </div>
+            <div class="col-lg-6 my-auto">
+                <div class="header-content mx-auto">
+                    <div class="progress" style="height: 2px;">
+                        <div class="progress-bar" role="progressbar" style="width: {{ n_question*20 }}%;"
+                            aria-valuenow="{{ n_question*20 }}" aria-valuemin="1" aria-valuemax="100"></div>
+                    </div>
+                    <p>{{ n_question }} de 5</p>
+                    <h3>{{ que }}</h3>
+                    {% if  n_question<5 %}
+                    <form method="POST" action="{{ url_for('survey') }}">
+                    {% else %}
+                    <form method="POST" action="{{ url_for('final_home') }}">
+                    {% endif %}
+                        {% for k,v in ans.items() %}
+                        <div class="custom-control custom-radio">
+                            <input type="radio" id="customRadio{{ k }}" name="customRadio"
+                                class="custom-control-input"
+                                value="{{ k }}" required>
+                            <label class="custom-control-label" for="customRadio{{ k }}">{{ v }}</label>
+                        </div>
+                        {% endfor %}
+                        <br>
+                        {% if n_question<5 %}
+                        <button type="submit" class="btn btn-primary">Siguiente</button>
+                        {% else %}
+                        <button type="submit" class="btn btn-primary">Finalizar</button>
+                        {% endif %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ################################################################################### -->
+<!-- Header -->
+
+{% endblock %}
