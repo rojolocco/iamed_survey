@@ -41,9 +41,9 @@
             {% if  n_question == 1 %}
             <div class="col-lg-6 my-auto">
             {% else %}
-            <div class="col-lg-12  my-auto center-block">
+            <div class="col-lg-12 my-auto center-block">
             {% endif %}
-                <div class="header-content mx-auto text-md-left">
+                <div class="header-content mx-auto">
                     <div class="progress" style="height: 2px;">
                         <div class="progress-bar" role="progressbar" style="width: {{ n_question*12.5 }}%;"
                             aria-valuenow="{{ n_question*12.5 }}" aria-valuemin="1" aria-valuemax="100"></div>
@@ -56,7 +56,7 @@
                     <form method="POST" action="{{ url_for('final_home') }}">
                     {% endif %}
                         {% for k,v in ans.items() %}
-                        <div class="custom-control custom-radio mb-2">
+                        <div class="custom-control custom-radio mb-2 text-left">
                             <input type="radio" id="customRadio{{ k }}" name="customRadio"
                                 class="custom-control-input"
                                 value="{{ k }}" required>
