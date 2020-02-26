@@ -50,9 +50,9 @@
                 {% if  inicio %}
                 <form method="POST" action="{{ url_for('index') }}">
                     <div class="header-content mx-auto">
-                        <h3 class="my-3">En esta nueva era de la revolución 4.0, el uso de herramientas basadas en
-                            inteligencia artificial aplicadas al sector salud es indispensable!</h3>
-                        <h3 class="my-3">Llena esta pequeña prueba para que veas que tanto sabes de <span id='indispensable'>INTELIGENCIA ARTIFICIAL!</span></h3>
+                        <h4 class="my-3">Llena esta pequeña prueba para que veas que tanto sabes de <span id='indispensable'>INTELIGENCIA ARTIFICIAL!</span></4>
+                        <br>
+                        <h4 class="my-3">Regálanos estos datos para hacer un análisis de los resultados de esta prueba</h4>
                         <br>
                         <h4 class="mb-1">Sexo</h4>
                         <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
@@ -66,7 +66,7 @@
                             </label>
                         </div>
                         <h4 class="mb-1">Industria</h4>
-                        <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                        <div class="btn-group btn-group-toggle btn-group-vertical mb-4" data-toggle="buttons">
                             <label class="btn btn-info btn-sm active">
                                 <input type="radio" name="industria" id="option3" autocomplete="off" value="salud"
                                     checked> Salud
@@ -77,7 +77,7 @@
                             </label>
                             <label class="btn btn-info btn-sm">
                                 <input type="radio" name="industria" id="option5" autocomplete="off" value="educacion">
-                                Educacion
+                                Educación
                             </label>
                             <label class="btn btn-info btn-sm">
                                 <input type="radio" name="industria" id="option5" autocomplete="off" value="otro">
@@ -85,7 +85,7 @@
                             </label>
                         </div>
                         <h4 class="mb-1">Nivel de Estudios</h4>
-                        <div class="btn-group btn-group-toggle mb-4" data-toggle="buttons">
+                        <div class="btn-group btn-group-toggle btn-group-vertical mb-4" data-toggle="buttons">
                             <label class="btn btn-info btn-sm active">
                                 <input type="radio" name="estudios" id="option6" autocomplete="off" value="Pregrado"
                                     checked> Pregrado
