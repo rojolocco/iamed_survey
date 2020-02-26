@@ -34,6 +34,7 @@
 <header class="masthead">
     <div class="container h-100">
         <div class="row h-100">
+            {% if  inicio %}
             <div class="col-lg-7 my-auto">
                 <div class="device-container">
                     <div class="device-mockup iphone6_plus portrait white">
@@ -47,7 +48,6 @@
                 </div>
             </div>
             <div class="col-lg-5 my-auto">
-                {% if  inicio %}
                 <form method="POST" action="{{ url_for('index') }}">
                     <div class="header-content mx-auto">
                         <h4 class="my-3">Llena esta pequeña prueba para que veas que tanto sabes de <span id='indispensable'>INTELIGENCIA ARTIFICIAL!</span></4>
@@ -103,16 +103,15 @@
                         <button type="submit" class="btn btn-success">!Enviar!</button>
                     </div>
                 </form>
-                {% else %}
+            {% else %}
+            <div class="col-lg-12 my-auto center-block">
                 <h3 class="my-3 text-center">Gracias por enviarnos los datos anteriores.</h3>
                         <h2 class="my-3 text-center"> ¿Que tanto sabes de <span id='indispensable'>INTELIGENCIA ARTIFICIAL?</span></h2>
                 <div class="text-center">
                     <a href="{{ url_for('survey') }}" class="btn btn-outline js-scroll-trigger text-center">!Comienza Ahora!</a>
-                </div>
-                
-                {% endif %}
-                
+                </div>    
             </div>
+            {% endif %}
         </div>
     </div>
 </header>

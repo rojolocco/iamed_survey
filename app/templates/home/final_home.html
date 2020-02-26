@@ -91,7 +91,12 @@
                                         {% else %}
                                         <span style="color: red;">Respuesta: {{ answers[k][v] }} </span>
                                         {% endif %}
-                                        <br> Correcta: {{ answers[k][correct[k]] }}</p>
+                                        <br>
+                                        {% if  correct[k] == v%}
+                                        ¡Respuesta acertada!</p>
+                                        {% else %}
+                                        Correcta: {{ answers[k][correct[k]] }}</p>
+                                        {% endif %}
                                     {% endfor %}
                                 </div>
                                 <div class="modal-footer">
