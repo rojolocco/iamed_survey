@@ -29,6 +29,7 @@
 <header class="masthead">
     <div class="container h-100">
         <div class="row h-100">
+            {% if  n_question == 1 %}
             <div class="col-lg-6 my-auto">
                 <div class="header-content mx-auto">
                     <h2 class="mb-5">Esta prueba consta de 5 preguntas básicas sobre inteligencia artificial.
@@ -36,11 +37,16 @@
                         <span id='indispensable' style="font-size: xxx-large;">!Buena Suerte!</span></h2>
                 </div>
             </div>
+            {% endif %}
+            {% if  n_question == 1 %}
             <div class="col-lg-6 my-auto">
-                <div class="header-content mx-auto">
+            {% else %}
+            <div class="col-lg-12  my-auto center-block">
+            {% endif %}
+                <div class="header-content mx-auto text-md-left">
                     <div class="progress" style="height: 2px;">
-                        <div class="progress-bar" role="progressbar" style="width: {{ n_question*20 }}%;"
-                            aria-valuenow="{{ n_question*20 }}" aria-valuemin="1" aria-valuemax="100"></div>
+                        <div class="progress-bar" role="progressbar" style="width: {{ n_question*12.5 }}%;"
+                            aria-valuenow="{{ n_question*12.5 }}" aria-valuemin="1" aria-valuemax="100"></div>
                     </div>
                     <p>{{ n_question }} de 8</p>
                     <h3>{{ que }}</h3>
