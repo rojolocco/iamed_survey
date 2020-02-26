@@ -5,6 +5,7 @@
 <!-- ################################################################################### -->
 <!-- Navigation -->
 {% block nav %}
+<a class="navbar-brand js-scroll-trigger" href="#page-top"></a>
 <img src="static/home/img/datapulse_logo.png" class="img-fluid" alt="Datapulse SAS" style="width: auto; height:80px">
 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -98,9 +99,12 @@
                     </div>
                 </form>
                 {% else %}
-                <h3 class="my-3">Gracias por enviarnos los datos anteriores. <br><br> ¿Que tanto sabes de <span
+                <h3 class="my-3 text-center">Gracias por enviarnos los datos anteriores. <br> ¿Que tanto sabes de <span
                         id='indispensable'>INTELIGENCIA ARTIFICIAL?</span></h3>
-                <a href="{{ url_for('survey') }}" class="btn btn-outline btn-xl js-scroll-trigger">Comienza Ahora!</a>
+                <div class="text-center">
+                    <a href="{{ url_for('survey') }}" class="btn btn-outline js-scroll-trigger text-center">Comienza Ahora!</a>
+                </div>
+                
                 {% endif %}
                 
             </div>
