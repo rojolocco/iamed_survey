@@ -136,7 +136,8 @@ def resultados():
                 respuestas = db.child("results").child(today).get().val()
                 result = calculo_resultados(respuestas)
                 print(result)
-                return render_template('/home/resultados.html', result=result)
+                return render_template('/home/resultados.html', result=result, 
+                questions=questions, answers=answers, correct=correct )
         except requests.exceptions.HTTPError:
             return render_template('/home/login_home.html', un=unsuccessful)
     return render_template('/home/login_home.html')

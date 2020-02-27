@@ -31,7 +31,199 @@
 <header class="masthead" id="resultsmasterhead">
     <div class="container h-100">
         <div class="row h-100">
-            
+            <div class="col-lg-4 my-auto">
+                <div class="header-content mx-auto">
+
+                    <h3 class="mb-2">Resultados de la prueba en <br> <span id='indispensable'>INTELIGENCIA
+                            ARTIFICIAL!</span></h3>
+                    <div class="border-top mb-1"></div>
+                    <p>Fecha: {{ result['fecha'] }} <br>
+                        Pruebas Realizadas: {{ result['n_pruebas'] }} <br>
+                        Porcentaje de Acierto: <br>
+                        <span style="font-size: xx-large; color:greenyellow">{{ result['perc_correct'] }}%</span></p>
+                    <div class="border-top mb-1"></div>
+
+                    <p>Hombres:
+                        {{ result['sexo']['masculino'] }}
+                        ({{ (result['sexo']['masculino']*100/result['n_pruebas'])|round(1) }}%)
+                        <br>
+                        Mujeres:
+                        {{ result['sexo']['femenino'] }}
+                        ({{ (result['sexo']['femenino']*100/result['n_pruebas'])|round(1) }}%)
+                    </p>
+                    <div class="border-top mb-1"></div>
+                    <p>Salud:
+                        {% if  result['industria']['salud']%}
+                        {{ result['industria']['salud'] }}
+                        ({{ (result['industria']['salud']*100/result['n_pruebas'])|round(1) }}%)
+                        {% else %}
+                        0 (0.0%)
+                        {% endif %}
+                        <br>
+                        Ingenieria:
+                        {% if  result['industria']['ingenieria']%}
+                        {{ result['industria']['ingenieria'] }}
+                        ({{ (result['industria']['ingenieria']*100/result['n_pruebas'])|round(1) }}%)
+                        {% else %}
+                        0 (0.0%)
+                        {% endif %}
+                        <br>
+                        Educación:
+                        {% if  result['industria']['educacion']%}
+                        {{ result['industria']['educacion'] }}
+                        ({{ (result['industria']['educacion']*100/result['n_pruebas'])|round(1) }}%)
+                        {% else %}
+                        0 (0.0%)
+                        {% endif %}
+                        <br>
+                        Otro:
+                        {% if  result['industria']['otro']%}
+                        {{ result['industria']['otro'] }}
+                        ({{ (result['industria']['otro']*100/result['n_pruebas'])|round(1) }}%)
+                        {% else %}
+                        0 (0.0%)
+                        {% endif %}
+                    </p>
+                    <div class="border-top mb-1"></div>
+                    <p>Pregrado:
+                        {% if  result['estudios']['Pregrado']%}
+                        {{ result['estudios']['Pregrado'] }}
+                        ({{ (result['estudios']['Pregrado']*100/result['n_pruebas'])|round(1) }}%)
+                        {% else %}
+                        0 (0.0%)
+                        {% endif %}
+                        <br>
+                        Posgrado:
+                        {% if  result['estudios']['Posgrado']%}
+                        {{ result['estudios']['Posgrado'] }}
+                        ({{ (result['estudios']['Posgrado']*100/result['n_pruebas'])|round(1) }}%)
+                        {% else %}
+                        0 (0.0%)
+                        {% endif %}
+                        <br>
+                        Otro:
+                        {% if  result['estudios']['Otro']%}
+                        {{ result['estudios']['Otro'] }}
+                        ({{ (result['estudios']['Otro']*100/result['n_pruebas'])|round(1) }}%)
+                        {% else %}
+                        0 (0.0%)
+                        {% endif %}
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-4 my-auto">
+                <h5>{{ questions['ans_1'] }}</h5>
+                {% if  result['ans_1'][correct['ans_1']] %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_1'][correct['ans_1']] }}</p>
+                <p style="font-size: medium; color:greenyellow;">Respuestas Correctas: {{ result['ans_1'][correct['ans_1']] }} de
+                    {{ result['n_pruebas'] }}
+                    ({{ (result['ans_1'][correct['ans_1']]*100/result['n_pruebas'])|round(1) }}%)</p>
+                {% else %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_1'][correct['ans_1']] }}</p>
+                <p style="font-size: medium;  color:greenyellow;">Respuestas Correctas: Ninguna de
+                    {{ result['n_pruebas'] }} (0.0%)</p>
+                {% endif %}
+                <div class="border-top mb-1"></div>
+
+                <h5>{{ questions['ans_6'] }}</h5>
+                {% if  result['ans_6'][correct['ans_6']] %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_6'][correct['ans_6']] }}</p>
+                <p style="font-size: medium; color:greenyellow;">Respuestas Correctas:
+                    {{ result['ans_6'][correct['ans_6']] }} de
+                    {{ result['n_pruebas'] }}
+                    ({{ (result['ans_2'][correct['ans_2']]*100/result['n_pruebas'])|round(1) }}%)</p>
+                {% else %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_6'][correct['ans_6']] }}</p>
+                <p style="font-size: medium;  color:greenyellow;">Respuestas Correctas: Ninguna de
+                    {{ result['n_pruebas'] }} (0.0%)</p>
+                {% endif %}
+                <div class="border-top mb-1"></div>
+
+                <h5>{{ questions['ans_7'] }}</h5>
+                {% if  result['ans_7'][correct['ans_7']] %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_7'][correct['ans_7']] }}</p>
+                <p style="font-size: medium; color:greenyellow;">Respuestas Correctas:
+                    {{ result['ans_7'][correct['ans_7']] }} de
+                    {{ result['n_pruebas'] }}
+                    ({{ (result['ans_3'][correct['ans_3']]*100/result['n_pruebas'])|round(1) }}%)</p>
+                {% else %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_7'][correct['ans_7']] }}</p>
+                <p style="font-size: medium;  color:greenyellow;">Respuestas Correctas: Ninguna de
+                    {{ result['n_pruebas'] }} (0.0%)</p>
+                {% endif %}
+                <div class="border-top mb-1"></div>
+
+                <h5>{{ questions['ans_8'] }}</h5>
+                {% if  result['ans_8'][correct['ans_8']] %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_8'][correct['ans_8']] }}</p>
+                <p style="font-size: medium; color:greenyellow;">Respuestas Correctas:
+                    {{ result['ans_8'][correct['ans_8']] }} de
+                    {{ result['n_pruebas'] }}
+                    ({{ (result['ans_4'][correct['ans_4']]*100/result['n_pruebas'])|round(1) }}%)</p>
+                {% else %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_8'][correct['ans_8']] }}</p>
+                <p style="font-size: medium;  color:greenyellow;">Respuestas Correctas: Ninguna de
+                    {{ result['n_pruebas'] }} (0.0%)</p>
+                {% endif %}
+                <div class="border-top mb-1"></div>
+            </div>
+            <div class="col-lg-4 my-auto">
+                <h5>{{ questions['ans_5'] }}</h5>
+                {% if  result['ans_5'][correct['ans_5']] %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_5'][correct['ans_5']] }}</p>
+                <p style="font-size: medium; color:greenyellow;">Respuestas Correctas:
+                    {{ result['ans_5'][correct['ans_5']] }} de
+                    {{ result['n_pruebas'] }}
+                    ({{ (result['ans_5'][correct['ans_5']]*100/result['n_pruebas'])|round(1) }}%)</p>
+                {% else %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_5'][correct['ans_5']] }}</p>
+                <p style="font-size: medium;  color:greenyellow;">Respuestas Correctas: Ninguna de
+                    {{ result['n_pruebas'] }} (0.0%)</p>
+                {% endif %}
+                <div class="border-top mb-1"></div>
+
+                <h5>{{ questions['ans_2'] }}</h5>
+                {% if  result['ans_2'][correct['ans_2']] %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_2'][correct['ans_2']] }}</p>
+                <p style="font-size: medium; color:greenyellow;">Respuestas Correctas:
+                    {{ result['ans_2'][correct['ans_2']] }} de
+                    {{ result['n_pruebas'] }}
+                    ({{ (result['ans_6'][correct['ans_6']]*100/result['n_pruebas'])|round(1) }}%)</p>
+                {% else %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_2'][correct['ans_2']] }}</p>
+                <p style="font-size: medium;  color:greenyellow;">Respuestas Correctas: Ninguna de
+                    {{ result['n_pruebas'] }} (0.0%)</p>
+                {% endif %}
+                <div class="border-top mb-1"></div>
+
+                <h5>{{ questions['ans_3'] }}</h5>
+                {% if  result['ans_3'][correct['ans_3']] %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_3'][correct['ans_3']] }}</p>
+                <p style="font-size: medium; color:greenyellow;">Respuestas Correctas:
+                    {{ result['ans_3'][correct['ans_3']] }} de
+                    {{ result['n_pruebas'] }}
+                    ({{ (result['ans_7'][correct['ans_7']]*100/result['n_pruebas'])|round(1) }}%)</p>
+                {% else %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_3'][correct['ans_3']] }}</p>
+                <p style="font-size: medium;  color:greenyellow;">Respuestas Correctas: Ninguna de
+                    {{ result['n_pruebas'] }} (0.0%)</p>
+                {% endif %}
+                <div class="border-top mb-1"></div>
+
+                <h5>{{ questions['ans_4'] }}</h5>
+                {% if  result['ans_4'][correct['ans_4']] %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_4'][correct['ans_4']] }}</p>
+                <p style="font-size: medium; color:greenyellow;">Respuestas Correctas:
+                    {{ result['ans_4'][correct['ans_4']] }} de
+                    {{ result['n_pruebas'] }}
+                    ({{ (result['ans_8'][correct['ans_8']]*100/result['n_pruebas'])|round(1) }}%)</p>
+                {% else %}
+                <p style="font-size: medium;">Correcta: {{ answers['ans_4'][correct['ans_4']] }}</p>
+                <p style="font-size: medium;  color:greenyellow;">Respuestas Correctas: Ninguna de
+                    {{ result['n_pruebas'] }} (0.0%)</p>
+                {% endif %}
+                <div class="border-top mb-1"></div>
+            </div>
         </div>
     </div>
 </header>

@@ -204,6 +204,7 @@ def calculo_resultados(resultados):
         'n_pruebas':n_pruebas,
         'perc_correct':perc_correct,
         'sexo':sexo_dict,
+        'industria':industria_dict,
         'estudios':estudios_dict,
         'ans_1':ans_1_dict,
         'ans_2':ans_2_dict,
