@@ -505,5 +505,15 @@ footer ul li a.active {
   background: url("../img/bg-pattern.png"),
     #02a710;
   background: url("../img/bg-pattern.png"),
-    linear-gradient(to left, #025208, #100644);
+    linear-gradient(to left, #000000, #05011b);
+}
+
+#resultsmasterhead {
+  position: relative;
+  width: 100%;
+  padding-top: 150px;
+  padding-bottom: 100px;
+  color: white;
+  background: #000000;
+  background: linear-gradient(to left, #000000, #010758, #000000);
 }

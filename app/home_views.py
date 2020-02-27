@@ -9,6 +9,7 @@ from datetime import date
 
 from flask import render_template, request, session
 from app.utils import questions, answers, correct
+from app.utils import calculo_resultados
 ######################################################################
 
 
@@ -39,7 +40,8 @@ def index():
         sexo = request.form['sexo']
         industria = request.form['industria']
         estudios = request.form['estudios']
-        print((sexo,industria,estudios))
+        contacto = request.form['contacto']
+        print((sexo,industria,estudios,contacto))
         k = str(uuid.uuid4())
         session["SURVEY"] = k
         session["QUESTION"] = 1
@@ -58,7 +60,8 @@ def index():
                 "ans_8": "None",
                 "sexo": sexo,
                 "industria": industria,
-                "estudios": estudios
+                "estudios": estudios,
+                "contacto":contacto
                 }
         db.child("results").child(today).child(k).set(data)
         return render_template('/home/index_home.html')
@@ -103,6 +106,7 @@ def final_home():
         
     respuestas = db.child("results").child(today).get().val()[k]
     respuestas.pop('survey_code', None)
+    respuestas.pop('contacto', None)
     respuestas.pop('sexo', None)
     respuestas.pop('industria', None)
     print(respuestas.pop('estudios', None))
@@ -111,9 +115,16 @@ def final_home():
 
 ######################################################################
 
-# Pagina de Acceso - LogIn01##########################################
+# Pagina de Acceso - LogIn ############################################
 @app.route('/login_home', methods=['GET', 'POST'])
 def login_home():
+    return render_template('/home/login_home.html')
+######################################################################
+
+
+# Pagina de Acceso - Resultados ############################################
+@app.route('/resultados', methods=['GET', 'POST'])
+def resultados():
     unsuccessful = True
     if request.method == 'POST':
         email = request.form['email']
@@ -122,7 +133,10 @@ def login_home():
             response = auth.sign_in_with_email_and_password(email, password)
             if response['registered']:
                 session["USERNAME"] = email
-                return render_template('/dashboard/index_dashboard.html')
+                respuestas = db.child("results").child(today).get().val()
+                result = calculo_resultados(respuestas)
+                print(result)
+                return render_template('/home/resultados.html', result=result)
         except requests.exceptions.HTTPError:
             return render_template('/home/login_home.html', un=unsuccessful)
     return render_template('/home/login_home.html')

@@ -3,10 +3,10 @@
 {% block title %}IA.Med Login Page{% endblock %}
 
 <!-- ################################################################################### -->
-<!-- Navigation-->
+<!-- Navigation -->
 {% block nav %}
-<a class="navbar-brand js-scroll-trigger" href="{{ url_for('index') }}">IA.Med</a>
-<!--
+<img src="static/home/img/datapulse_logo.png" class="img-fluid" alt="Datapulse SAS"
+    style="max-width: 100%; max-height:50px">
 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive"
     aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
     Menu
@@ -15,23 +15,13 @@
 <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#download">Descargar</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#features">Características</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
-        </li>
-
-        <li class="nav-item" id="login">
-            <a class="nav-link js-scroll-trigger" href="{{ url_for('login_home') }}">LogIn</a>
+            <a class="nav-link js-scroll-trigger" href="{{ url_for('index') }}">Volver</a>
         </li>
     </ul>
-</div>-->
+</div>
 {% endblock %}
 <!-- ################################################################################### -->
-<!-- Navigation-->
+<!-- Navigation -->
 
 
 {% block body %}
@@ -40,15 +30,14 @@
 <header class="masthead" id="loginmasterhead">
     <div class="container h-100">
         <div class="row h-100">
-            <div class="col-lg-7 my-auto">
+            <div class="col-lg-6 my-auto">
                 <div class="header-content mx-auto">
-                    <img src="/static/home/img/Asset.png" alt="IA.Med" style="width:88%">
-                    <h1 class="mb-5">Ingresa y disfruta de la nueva generación de WebApps en
-                        <span id='indispensable'>MEDICINA!</span></h1>
+                    <h4 class="mb-5">Ingresar y ver los resultados de la prueba en <br> <span id='indispensable'>INTELIGENCIA
+                            ARTIFICIAL!</span></h4>
                 </div>
             </div>
-            <div class="col-lg-5 my-auto">
-                <form method="POST" action="{{ url_for('login_home') }}">
+            <div class="col-lg-6 my-auto">
+                <form method="POST" action="{{ url_for('resultados') }}">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Correo Electrónico</label>
                         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
