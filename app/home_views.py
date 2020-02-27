@@ -126,19 +126,19 @@ def login_home():
 @app.route('/resultados', methods=['GET', 'POST'])
 def resultados():
     unsuccessful = True
-    if request.method == 'POST':
-        email = request.form['email']
-        password = request.form['password']
-        try:
-            response = auth.sign_in_with_email_and_password(email, password)
-            if response['registered']:
-                session["USERNAME"] = email
-                respuestas = db.child("results").child(today).get().val()
-                result = calculo_resultados(respuestas)
-                print(result)
-                return render_template('/home/resultados.html', result=result, 
-                questions=questions, answers=answers, correct=correct )
-        except requests.exceptions.HTTPError:
-            return render_template('/home/login_home.html', un=unsuccessful)
-    return render_template('/home/login_home.html')
+    #if request.method == 'POST':
+        #email = request.form['email']
+        #password = request.form['password']
+    try:
+        #response = auth.sign_in_with_email_and_password(email, password)
+        #if response['registered']:
+        #    session["USERNAME"] = email
+        respuestas = db.child("results").child(today).get().val()
+        result = calculo_resultados(respuestas)
+        print(result)
+        return render_template('/home/resultados.html', result=result, 
+        questions=questions, answers=answers, correct=correct )
+    except requests.exceptions.HTTPError:
+        return render_template('/home/login_home.html', un=unsuccessful)
+    #return render_template('/home/login_home.html')
 ######################################################################

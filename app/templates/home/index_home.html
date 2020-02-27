@@ -15,12 +15,18 @@
 </button>
 <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav ml-auto">
+        {% if  inicio %}
         <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#contact">Contacto</a>
         </li>
-        <li class="nav-item" id="login">
-            <a class="nav-link js-scroll-trigger" href="{{ url_for('login_home') }}">LogIn</a>
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ url_for('resultados') }}">Resultados</a>
         </li>
+        {% else %}
+        <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="{{ url_for('index') }}">Volver</a>
+        </li>
+        {% endif %}
     </ul>
 </div>
 {% endblock %}
@@ -126,6 +132,7 @@
 
 <!-- ################################################################################### -->
 <!-- Contact-->
+{% if  inicio %}
 <section class="contact bg-light text-white" id="contact">
     <div class="container">
         <h2 style="color: black;">We
@@ -162,6 +169,7 @@
         <p style="color: black;">info@datapulse-opt.com</p>
     </div>
 </section>
+{% endif %}
 <!-- ################################################################################### -->
 <!-- Contact-->
 {% endblock %}
